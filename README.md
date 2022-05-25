@@ -56,3 +56,4 @@ there is some power in adding the different contributions there, but I guess itâ
 No reason not to try it out, though.
 
 # Notes on [Allen](https://gitlab.cern.ch/lhcb/Allen)
+- Are containers in Allen of fixed size?
