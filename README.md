@@ -28,32 +28,38 @@
 Lower level variables like hits/clusters are probably not worth considering, as they are effectively
 included in variables like track $\chi^2$, etc
 
-### Momentum dependence of calorimeter deposits 
-CALO digit information is useful, however should include the actual energy values / ADC counts corresponding to those indices.
-To avoid biasing the result towards decays with a higher momenta, they should always be scaled energy by momenta.
-These $E\large/p$ variables should also be looked at for sensitivity to particle ID.
+### Calorimeter deposits
+CALO digit information is useful, however should include the actual energy values / ADC counts
+corresponding to those indices.
 
-For electrons "ideal" $E\large/p$ is close to 1, for hadrons like $\pi$-s
-it can be more spread out (high variance), with a central value smaller than unity.
+#### Momentum dependence of calorimeter deposits
+The fraction of a particle's energy deposited in the carlorimeter depends on the particle species,
+as electrons & photons interact with the EM field of the heavy nuclei in the calorimeter, whereas
+hadrons like. $\pi$-s, $K$-s mostly undergo strong interaction.  This means they have different
+[radiation lengths](https://en.wikipedia.org/wiki/Radiation_length), and the fraction of the energy
+deposited in the calorimeter depends on the species.
+
+To avoid biasing any electron ID algorithm towards decays with higher momenta, energy should always
+be scaled by momenta.  So we look at the distribution of $E\large/p$.  For electrons $E\large/p$
+is close to 1, whereas for hadrons like $\pi$-s it can be more spread out (high variance), with a
+central value _smaller than one_.  So we should also look at these variables for sensitivity to
+particle ID.
 
 ### Busy events
-After the upgrade, data rate is 5 times as much, presenting the main challenge
-in using calorimeter deposits for electron ID (overlapping deposits).
+After the upgrade, data rate is increased by ~5 times.  This presents the main challenge in using
+calorimeter deposits for electron ID, as more particles mean calorimeter deposits will overlap.
 
-So to identify if an event is "busy", it would be worthwhile to also include
-global variables like `nPVs` (number of primary vertices, typically ~5),
-which would be the length of non-zero elements in the PV list, or `nTracks`
-(number of tracks) which would be the length of the non-zero elements in the
-track container.
+To identify if an event is "busy", it would be worthwhile to also include global variables like
+`nPVs` (number of primary vertices, typically ~5), which would be the length of non-zero elements
+in the PV list, or `nTracks` (number of tracks) which would be the length of the non-zero elements
+in the track container.
 
 *Note:* 'non-zero' because I think the containers are of fixed-size in Allen.
 
-Maybe it is also relevant to ask: *which tracking sub-detector is more busy, velo, or scifi?*
-In that case we might also need number of velo/scifi tracks.
-
-In the end these are all related, we just want a ‘measure’ for how busy the event is. Perhaps
-there is some power in adding the different contributions there, but I guess it’s not large.
-No reason not to try it out, though.
+Maybe it is also relevant to ask: *which tracking sub-detector is more busy, e.g. velo, or scifi?*
+In that case we might also need number of velo/scifi tracks.  In the end these are all related, we
+just want a ‘measure’ for how busy the event is. Perhaps there is some power in adding the different
+contributions there, but I guess it’s not large. No reason not to try it out.
 
 # Notes on [Allen](https://gitlab.cern.ch/lhcb/Allen)
 - Are containers in Allen of fixed size?
