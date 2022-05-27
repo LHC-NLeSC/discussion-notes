@@ -61,5 +61,11 @@ In that case we might also need number of velo/scifi tracks.  In the end these a
 just want a ‘measure’ for how busy the event is. Perhaps there is some power in adding the different
 contributions there, but I guess it’s not large. No reason not to try it out.
 
+# New approaches
+
+## Looking at calorimeter deposits as an image
+- 1 "image" per-layer, annotated with track momenta when they are extrapolated to the calorimeter
+- include global [busy event](#busy-events) variables discussed above
+
 # Notes on [Allen](https://gitlab.cern.ch/lhcb/Allen)
 - Are containers in Allen of fixed size?
