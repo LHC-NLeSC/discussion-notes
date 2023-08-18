@@ -60,3 +60,6 @@ Maybe it is also relevant to ask: *which tracking sub-detector is more busy, e.g
 In that case we might also need number of velo/scifi tracks.  In the end these are all related, we
 just want a ‘measure’ for how busy the event is. Perhaps there is some power in adding the different
 contributions there, but I guess it’s not large. No reason not to try it out.
+
+## Ghost probability
+- [Other work](https://indico.cern.ch/event/1249044/contributions/5505681/attachments/2686347/4660910/RTA-WP2%20LongGhost%20(1).pdf) (Valencia)
